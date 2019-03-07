@@ -14,11 +14,6 @@ if ('addEventListener' in document) {
 		FastClick.attach(document.body);
 	}, false);
 }
-import {
-  /* eslint-disable no-unused-vars */
-  Style,
-  Button
-} from 'cube-ui'
 // 阻止启动生产消息
 Vue.config.productionTip = false
 Vue.use(Navigation, {router, store, moduleName: 'navigation', keyName: 'VNK'})
