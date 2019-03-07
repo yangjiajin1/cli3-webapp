@@ -1,0 +1,64 @@
+@import 'vars.scss';
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  text-size-adjust: none;
+}
+html {
+  height: 100%;
+  font-size : 13.3vw;
+  -webkit-text-size-adjust: none;
+  font-family: 'Helvetica Neue', Tahoma, Arial, PingFangSC-Regular, 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
+body{
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  height: 100%;
+}
+ul,li{ list-style:none;}
+select,input,img{vertical-align:middle;}
+a,a:link,a:hover,a:active,a:visited{ text-decoration:none; outline:0 none; }
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  font-size:0;
+}
+.clearfix { *zoom:1;}
+
+/*iphone安全距离适配类*/
+.ios-marginTop {
+  margin-top: env(safe-area-inset-top);
+}
+.ios-paddingTop {
+  padding-top: env(safe-area-inset-top);
+}
+.ios-paddingTopHeade {
+  padding-top: calc(env(safe-area-inset-top) + 46px);
+}
+.ios-paddingBottom {
+  padding-bottom: 50px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 50px);
+}
+
+.van-nav-bar {
+  background-color: #57a1ca;
+  box-sizing: content-box;
+  padding-top: env(safe-area-inset-top);
+}
+.van-nav-bar .van-nav-bar__left .van-nav-bar__text , .van-nav-bar .van-icon , .van-nav-bar .van-nav-bar__title {
+  color: #fff;
+}
+.van-nav-bar__text:active {
+  background-color: transparent;
+}
+.van-tabbar--fixed {
+  box-sizing: content-box;
+  z-index: 999 !important;
+  padding-bottom: env(safe-area-inset-bottom);
+}
