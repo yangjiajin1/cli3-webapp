@@ -35,7 +35,7 @@ export default {
       value: '',
       map : {},
       center: {
-        lng: '116.655227',
+        lng: '116.655228',
         lat: '39.956155'
       },
       nowPosition: {
