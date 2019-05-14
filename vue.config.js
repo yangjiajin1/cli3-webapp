@@ -58,26 +58,7 @@ module.exports = {
   // }
   chainWebpack: config => {
     config.entry.app = ["babel-polyfill", resolve('src/main.js')]
-    // config.externals = {
-    //   'BMap': 'BMap'
-    // }
     // config.resolve.alias
     //   .set('@', resolve('src'))
-  },
-
-  css: {
-    loaderOptions: {
-      stylus: {
-        'resolve url': true,
-        'import': []
-      }
-    }
-  },
-
-  pluginOptions: {
-    'cube-ui': {
-      postCompile: false,
-      theme: false
-    }
   }
 };

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <!-- <van-nav-bar
+    <van-nav-bar
       title="页面2"
       left-arrow
       fixed
       @click-left="back"
-    /> -->
+    />
   </div>
 </template>
 

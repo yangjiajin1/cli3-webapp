@@ -9,10 +9,10 @@
     <bm-marker :position="nowPosition">
     </bm-marker>
     <!-- @infohtmlset="aaaa" @markersset="aaaa" -->
-    <bm-local-search :keyword="value" :nearby="nearby" :auto-viewport="true" :panel="true" 
+    <bm-local-search :keyword="value1" :nearby="nearby" :auto-viewport="true" :panel="true" 
     ></bm-local-search>
   </baidu-map>
-  <search placeholder="请输入搜索关键词" v-model="value1" />
+  <input placeholder="请输入搜索关键词" v-model="value1" />
   <button type="default" @click="sousuo">搜索1000米范围</button>
   </div>
 </template>

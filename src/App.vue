@@ -8,20 +8,12 @@
 
     <!-- 底部导航 -->
     <transition name="slideInUp">
-      <!-- <van-tabbar fixed v-model="active" v-if="$store.state.showFooter">
+      <van-tabbar fixed v-model="active" v-if="$store.state.showFooter">
         <van-tabbar-item icon=" iconfont icon-shouye" @click="back('home')">首页</van-tabbar-item>
         <van-tabbar-item icon=" iconfont icon-dingyue" @click="back('attendance2')">考勤2</van-tabbar-item>
         <van-tabbar-item icon=" iconfont icon-shoucang" @click="back('attendance')">考勤</van-tabbar-item>
         <van-tabbar-item icon=" iconfont icon-wode">我的</van-tabbar-item>
-      </van-tabbar> -->
-      <cube-tab-bar
-      class="tabBar"
-      v-if="$store.state.showFooter"
-    v-model="selectedLabelDefault"
-    :data="tabs"
-    @click="clickHandler">
-
-  </cube-tab-bar>
+      </van-tabbar>
     </transition>
   </div>
 </template>
@@ -31,25 +23,9 @@ export default {
   data () {
     return {
       transitionName: '',
+      active: 0,
       menlist:['home','attendance','attendance2'],
-      selectedLabelDefault: 'home',
-      tabs: [{
-        label: '首页',
-        value: 'home',
-        icon: 'cubeic-home'
-      }, {
-        label: '考勤',
-        value: 'attendance2',
-        icon: 'cubeic-like'
-      }, {
-        label: 'Vip',
-        value: 'attendance',
-        icon: 'cubeic-vip'
-      }, {
-        label: '我的',
-        value: '',
-        icon: 'cubeic-person'
-      }]
+      selectedLabelDefault: 'home'
     }
   },
   mounted () {
@@ -74,10 +50,6 @@ export default {
     },
     ismen (a,b) {
       return (this.menlist.includes(a) && this.menlist.includes(b))
-    },
-    clickHandler (label) {
-      // if you clicked home tab, then print 'Home'
-      this.back(label)
     }
   }
 }
