@@ -31,7 +31,7 @@ export default {
     return {
       map : {},
       center: {
-        lng: '116.655228',
+        lng: '116.655227',
         lat: '39.956155'
       },
       nowPosition: {
