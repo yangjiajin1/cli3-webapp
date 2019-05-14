@@ -32,7 +32,8 @@ export default {
         { image: "http://yangjiajin.cn/img/lunbo/Rotation1.jpg" },
         { image: "http://yangjiajin.cn/img/lunbo/Rotation2.jpg" },
         { image: "http://yangjiajin.cn/img/lunbo/Rotation3.jpg" }
-      ]
+      ],
+      haha:'改着玩'
     };
   },
   activated() {
