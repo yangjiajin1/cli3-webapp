@@ -9,7 +9,18 @@ import {
   Swipe,
   SwipeItem,
   NavBar,
-  Lazyload
+  Lazyload,
+  GridItem,
+  Grid,
+  Uploader,
+  Field,
+  Cell,
+  CellGroup,
+  Button,
+  Image,
+  Icon,
+  Popup,
+  ImagePreview
 } from 'vant'
 
 Vue.use(Tabbar)
@@ -18,3 +29,14 @@ Vue.use(Swipe)
 Vue.use(SwipeItem)
 Vue.use(NavBar)
 Vue.use(Lazyload)
+Vue.use(GridItem)
+Vue.use(Grid)
+Vue.use(Uploader)
+Vue.use(Field)
+Vue.use(Cell)
+Vue.use(CellGroup)
+Vue.use(Button)
+Vue.use(Image)
+Vue.use(Icon)
+Vue.use(Popup)
+Vue.use(ImagePreview)

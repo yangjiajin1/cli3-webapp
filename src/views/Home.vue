@@ -7,24 +7,23 @@
         </van-swipe-item>
       </van-swipe>
     </div>
-    <div>
-      <router-link to="/about" style="font-size:20px;padding:15px">Go to about</router-link>
+    <div class="menuList">
+      <van-grid :gutter="10">
+        <van-grid-item
+          v-for="(item,index) in menuList"
+          :key="index"
+          :icon="item.icon"
+          :text="item.name"
+          :to="item.path"
+        />
+      </van-grid>
     </div>
-    <div class="menuList"></div>
-    <slide-stack></slide-stack>
-    <slide-line></slide-line>
   </div>
 </template>
 
 <script>
-import slideStack from "@/components/slide/slideStack";
-import slideLine from "@/components/slide/slideLine";
 export default {
   name: "home",
-  components: {
-    slideStack,
-    slideLine
-  },
   data() {
     return {
       weizhi: 0,
@@ -33,7 +32,18 @@ export default {
         { image: "http://yangjiajin.cn/img/lunbo/Rotation2.jpg" },
         { image: "http://yangjiajin.cn/img/lunbo/Rotation3.jpg" }
       ],
-      haha:'改着玩'
+      haha:'改着玩',
+      menuList: [
+        {name: '图片压缩', icon: 'photo-o',path: '/imgPage'},
+        {name: '日历', icon: 'calender-o', path: '/calendar'},
+        {name: '二维码', icon: 'qr', path: '/myQrcode'},
+        {name: '滑动', icon: 'hotel-o', path: '/slide'},
+        {name: '图表', icon: 'bar-chart-o', path: '/myEcharts'},
+        {name: 'popup滑动', icon: 'bar-chart-o', path: '/pinlun'},
+        {name: '图片上传', icon: 'photo-o', path: '/imgList'},
+        {name: '热力图', icon: 'photo-o', path: '/heatMap'},
+        {name: '生成海报', icon: 'photo-o', path: '/htmlCanvas'},
+      ]
     };
   },
   activated() {
@@ -41,7 +51,12 @@ export default {
   },
   deactivated() {
     this.weizhi = this.$refs.home.scrollTop;
+  },
+  created () {
+  },
+  methods: {
   }
+
 };
 </script>
 <style lang="scss">
@@ -54,7 +69,8 @@ export default {
     }
   }
   .menuList {
-    height: 300px;
+    padding: 10px 0;
+    height: 500px;
   }
 }
 </style>

@@ -10,45 +10,84 @@ export default [
     component: Home
   },
   {
-    path: '/attendance',
-    name: 'attendance',
+    path: '/newsList',
+    name: 'newsList',
     meta: {
-      title: '考勤',
+      title: '推荐新闻',
       footer: true
     },
-    component: () => import('@/views/attendance/attendance.vue')
+    component: () => import('@/views/news/newsList.vue')
   },
   {
-    path: '/attendance2',
-    name: 'attendance2',
+    path: '/imgPage',
+    name: 'imgPage',
     meta: {
-      title: '考勤',
-      footer: true
+      title: '图片压缩'
     },
-    component: () => import('@/views/attendance/attendance2.vue')
+    component: () => import('@/views/demo/imgPage.vue')
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/calendar',
+    name: 'calendar',
     meta: {
-      title: 'about'
+      title: '日历'
     },
-    component: () => import('@/views/About.vue')
+    component: () => import('@/views/demo/calendar.vue')
   },
   {
-    path: '/yemian1',
-    name: 'yemian1',
+    path: '/myQrcode',
+    name: 'myQrcode',
     meta: {
-      title: '页面一'
+      title: '生成二维码'
     },
-    component: () => import('@/views/cheldPage/yemian1.vue')
+    component: () => import('@/views/demo/myQrcode.vue')
   },
   {
-    path: '/yemian2',
-    name: 'yemian2',
+    path: '/slide',
+    name: 'slide',
     meta: {
-      title: '页面二'
+      title: '生成二维码'
     },
-    component: () => import('@/views/cheldPage/yemian2.vue')
+    component: () => import('@/views/demo/slide.vue')
+  },
+  {
+    path: '/myEcharts',
+    name: 'myEcharts',
+    meta: {
+      title: '图表'
+    },
+    component: () => import('@/views/demo/myEcharts.vue')
+  },
+  {
+    path: '/pinlun',
+    name: 'pinlun',
+    meta: {
+      title: 'demo'
+    },
+    component: () => import('@/views/demo/pinlun.vue')
+  },
+  {
+    path: '/imgList',
+    name: 'imgList',
+    meta: {
+      title: 'demo'
+    },
+    component: () => import('@/views/demo/imgList.vue')
+  },
+  {
+    path: '/heatMap',
+    name: 'heatMap',
+    meta: {
+      title: '热力图'
+    },
+    component: () => import('@/views/heatMap/heatMap.vue')
+  },
+  {
+    path: '/htmlCanvas',
+    name: 'htmlCanvas',
+    meta: {
+      title: '海报'
+    },
+    component: () => import('@/views/htmlCanvas/htmlCanvas.vue')
   }
 ]

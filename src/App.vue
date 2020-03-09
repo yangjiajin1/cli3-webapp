@@ -2,16 +2,16 @@
   <div id="app">
     <transition :name="transitionName">
       <navigation>
-        <router-view class="router-view"/>
+        <router-view class="router-view" />
       </navigation>
     </transition>
 
-    <!-- 底部导航 -->
+    <!-- 底部导航 newsList-->
     <transition name="slideInUp">
       <van-tabbar fixed v-model="active" v-if="$store.state.showFooter">
         <van-tabbar-item icon=" iconfont icon-shouye" @click="back('home')">首页</van-tabbar-item>
-        <van-tabbar-item icon=" iconfont icon-dingyue" @click="back('attendance2')">考勤2</van-tabbar-item>
-        <van-tabbar-item icon=" iconfont icon-shoucang" @click="back('attendance')">考勤</van-tabbar-item>
+        <van-tabbar-item icon=" iconfont icon-dingyue" @click="back('newsList')">新闻</van-tabbar-item>
+        <van-tabbar-item icon=" iconfont icon-shoucang">功能2</van-tabbar-item>
         <van-tabbar-item icon=" iconfont icon-wode">我的</van-tabbar-item>
       </van-tabbar>
     </transition>
@@ -19,44 +19,44 @@
 </template>
 <script>
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
-      transitionName: '',
+      transitionName: "",
       active: 0,
-      menlist:['home','attendance','attendance2'],
-      selectedLabelDefault: 'home'
-    }
+      menlist: ["home", "newsList", "attendance2"],
+      selectedLabelDefault: "home"
+    };
   },
-  mounted () {
-    this.$navigation.on('forward', (f,t) => {
-      if (this.ismen(f.route.name,t.route.name)) {
-        this.transitionName = ''
-        return
+  mounted() {
+    this.$navigation.on("forward", (f, t) => {
+      if (this.ismen(f.route.name, t.route.name)) {
+        this.transitionName = "";
+        return;
       }
-      this.transitionName = 'slide-in-right'
-    })
-    this.$navigation.on('back', (f,t) => {
-      if (this.ismen(f.route.name,t.route.name)) {
-        this.transitionName = ''
-        return
+      this.transitionName = "slide-in-right";
+    });
+    this.$navigation.on("back", (f, t) => {
+      if (this.ismen(f.route.name, t.route.name)) {
+        this.transitionName = "";
+        return;
       }
-      this.transitionName = 'slide-out-right'
-    })
+      this.transitionName = "slide-out-right";
+    });
   },
   methods: {
-    goFacade (url) {
-      this.$router.push({name: url})
+    goFacade(url) {
+      this.$router.push({ name: url });
     },
-    ismen (a,b) {
-      return (this.menlist.includes(a) && this.menlist.includes(b))
+    ismen(a, b) {
+      return this.menlist.includes(a) && this.menlist.includes(b);
     }
   }
-}
+};
 </script>
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -69,7 +69,6 @@ export default {
     right: 0;
     bottom: 0;
     background-color: #fff;
-
   }
 }
 .router-view {
@@ -84,60 +83,57 @@ export default {
   background-color: #fafafa;
 }
 .slideInUp-enter-active {
-  animation-name: 'slideInUp';
-  animation-duration: .3s;
+  animation-name: "slideInUp";
+  animation-duration: 0.3s;
 }
 .slideInUp-leave-active {
-  animation-name: 'slideOutDown';
-  animation-duration: .3s;
+  animation-name: "slideOutDown";
+  animation-duration: 0.3s;
 }
 
-
-.slide-in-right-enter-active{
-  animation-name: 'slideInRight';
-  animation-duration: .5s;
+.slide-in-right-enter-active {
+  animation-name: "slideInRight";
+  animation-duration: 0.35s;
   pointer-events: none;
 }
-.slide-in-right-leave-active{
+.slide-in-right-leave-active {
   // fadeOutMy
-  animation-name: 'fadeOutMy';
-  animation-duration: .5s;
+  animation-name: "fadeOutMy";
+  animation-duration: 0.35s;
   pointer-events: none;
   z-index: 0;
 }
 
-.slide-out-right-enter-active{
-  animation-name: 'fadeInMy';
-  animation-duration: .5s;
+.slide-out-right-enter-active {
+  animation-name: "fadeInMy";
+  animation-duration: 0.35s;
   pointer-events: none;
 }
-.slide-out-right-leave-active{
+.slide-out-right-leave-active {
   animation-name: "slideOutRight";
-  animation-duration: .5s;
+  animation-duration: 0.35s;
   pointer-events: none;
   z-index: 2;
 }
 
-@keyframes fadeOutMy
-{
-from {
-  transform: translateX(0px);
-  -webkit-transform: translateX(0px);
+@keyframes fadeOutMy {
+  from {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
   }
-to {
-  transform: translateX(-100px);
-  -webkit-transform: translateX(-100px);
+  to {
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
   }
 }
-@keyframes fadeInMy
-{
-from {
-  transform: translateX(-100px);
-  -webkit-transform: translateX(-100px);
+@keyframes fadeInMy {
+  from {
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
   }
-to {
-  -webkit-transform: translateX(0px);
-  transform: translateX(0px);
+  to {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 </style>

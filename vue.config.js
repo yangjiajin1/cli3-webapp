@@ -37,7 +37,7 @@ module.exports = {
   // productionSourceMap: false,
 
   // // 它支持webPack-dev-server的所有选项
-  // devServer: {
+  devServer: {
   //   host: "localhost",
   //   port: 1111, // 端口号
   //   https: false, // https:{type:Boolean}
@@ -45,20 +45,34 @@ module.exports = {
   //   // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
 
   //   // 配置多个代理
-  //   proxy: {
-  //     "/api": {
-  //       target: "<url>",
-  //       ws: true,
-  //       changeOrigin: true
-  //     },
-  //     "/foo": {
-  //       target: "<other_url>"
-  //     }
-  //   }
-  // }
-  chainWebpack: config => {
-    config.entry.app = ["babel-polyfill", resolve('src/main.js')]
+    proxy: {
+      "/api": {
+        target: "http://v.juhe.cn",
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      "/upl": {
+        target: "http://biuptest.sinosig.com:8080",
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/upl': ''
+        }
+      },
+    }
+  },
+
+  // Babel转换的文件中排除
+  // transpileDependencies: [
+  //   'vue-echarts',
+  //   'resize-detector'
+  // ],
+  // chainWebpack: config => {
+    // config.entry.app = ["babel-polyfill", resolve('src/main.js')]
     // config.resolve.alias
     //   .set('@', resolve('src'))
-  }
+  // }
 };
