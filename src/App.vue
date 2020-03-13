@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div style ='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+      <img src='@/assets/images/imgIcon.jpg' />
+    </div >
     <transition :name="transitionName">
       <navigation>
         <router-view class="router-view" />

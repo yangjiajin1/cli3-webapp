@@ -294,19 +294,22 @@ export default {
       if (data !== null) {
         data.status = 1;
       }
+      let suiji = (Math.ceil(Math.random()*10) + 1) * 1000
       this.handleProgress(item, 5);
       setTimeout(() => {
-        this.handleProgress(item, 20);
-      }, 1000);
-      setTimeout(() => {
-        this.handleProgress(item, 50);
-      }, 2000);
-      setTimeout(() => {
-        this.handleProgress(item, 80);
-      }, 3500);
-      setTimeout(() => {
-        this.handleUploadEnd(item, { url: "dsfdsf" }, 2);
-      }, 5000);
+        setTimeout(() => {
+          this.handleProgress(item, 20);
+        }, 1000);
+        setTimeout(() => {
+          this.handleProgress(item, 50);
+        }, 2000);
+        setTimeout(() => {
+          this.handleProgress(item, 80);
+        }, 3500);
+        setTimeout(() => {
+          this.handleUploadEnd(item, { url: "dsfdsf" }, 2);
+        }, 5000);
+      },suiji)
     }
   }
 };

@@ -11,12 +11,15 @@ import './assets/js/rem'
 import './assets/iconfont/iconfont.css' // 字体图标
 import Navigation from 'vue-navigation'
 // 移动端点击优化 needsclick 
-// import FastClick from 'fastclick'
-// if ('addEventListener' in document) {
-// 	document.addEventListener('DOMContentLoaded', function() {
-// 		FastClick.attach(document.body);
-// 	}, false);
-// }
+import FastClick from 'fastclick'
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+    FastClick.prototype.focus = function(targetElenent) {
+      targetElenent.focus()
+    }
+	}, false);
+}
 // 阻止启动生产消息
 Vue.config.productionTip = false
 Vue.use(Navigation, {router, store, moduleName: 'navigation', keyName: 'VNK'})

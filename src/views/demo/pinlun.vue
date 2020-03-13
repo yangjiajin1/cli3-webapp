@@ -14,7 +14,7 @@
     </van-popup>
         <Popup v-model="popShow" :height="60">
             <div style="height:50px;" v-for="item in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" :key="item">
-                的缩放个单身狗是电饭锅是电饭锅的分数高健康的分数能开发大脑思考过 v 你
+                下滑关闭
             </div>
         </Popup>
         <div style="height:100px">

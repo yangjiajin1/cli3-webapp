@@ -40,7 +40,7 @@ export default {
         {name: '滑动', icon: 'hotel-o', path: '/slide'},
         {name: '图表', icon: 'bar-chart-o', path: '/myEcharts'},
         {name: 'popup滑动', icon: 'bar-chart-o', path: '/pinlun'},
-        {name: '图片上传', icon: 'photo-o', path: '/imgList'},
+        {name: '多图上传', icon: 'photo-o', path: '/imgList'},
         {name: '热力图', icon: 'photo-o', path: '/heatMap'},
         {name: '生成海报', icon: 'photo-o', path: '/htmlCanvas'},
       ]
