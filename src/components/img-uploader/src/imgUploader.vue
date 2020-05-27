@@ -13,7 +13,7 @@
             <span v-else>{{statusAll[item.status]}}</span>
           </div>
           <div class="leReUpload" v-if="item.status == 3" @click="handleReUpload(item)">重新上传</div>
-          <i class="deleteButton" @click="handleDelete(index)"></i>
+          <i class="deleteButton" @click.stop="handleDelete(index)"></i>
         </div>
       </li>
       <li @click="openSelect" class="cp-li_addInput" :key="'moren999999999'">
@@ -53,7 +53,7 @@ export default {
     // 并发上传控制
     maxUploadSize: {
       type: Number,
-      default: 5
+      default: 3
     },
     // 张数限制
     multiple: {

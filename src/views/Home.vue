@@ -28,9 +28,9 @@ export default {
     return {
       weizhi: 0,
       images: [
-        { image: "http://yangjiajin.cn/img/lunbo/Rotation1.jpg" },
-        { image: "http://yangjiajin.cn/img/lunbo/Rotation2.jpg" },
-        { image: "http://yangjiajin.cn/img/lunbo/Rotation3.jpg" }
+        { image: "http://yangjiajin.cn/static/img/lunbo/Rotation1.jpg" },
+        { image: "http://yangjiajin.cn/static/img/lunbo/Rotation2.jpg" },
+        { image: "http://yangjiajin.cn/static/img/lunbo/Rotation1.jpg" }
       ],
       haha:'改着玩',
       menuList: [
@@ -38,11 +38,12 @@ export default {
         {name: '日历', icon: 'calender-o', path: '/calendar'},
         {name: '二维码', icon: 'qr', path: '/myQrcode'},
         {name: '滑动', icon: 'hotel-o', path: '/slide'},
-        {name: '图表', icon: 'bar-chart-o', path: '/myEcharts'},
+        // {name: '图表', icon: 'bar-chart-o', path: '/myEcharts'},
         {name: 'popup滑动', icon: 'bar-chart-o', path: '/pinlun'},
         {name: '多图上传', icon: 'photo-o', path: '/imgList'},
-        {name: '热力图', icon: 'photo-o', path: '/heatMap'},
+        // {name: '热力图', icon: 'photo-o', path: '/heatMap'},
         {name: '生成海报', icon: 'photo-o', path: '/htmlCanvas'},
+        {name: '消息推送', icon: 'chat-o', path: '/globalPush'},
       ]
     };
   },
@@ -62,7 +63,7 @@ export default {
 <style lang="scss">
 .home {
   .home-swipe {
-    height: 3.45rem;
+    height: 2.92rem;
     img {
       width: 100% !important;
       height: 100% !important;

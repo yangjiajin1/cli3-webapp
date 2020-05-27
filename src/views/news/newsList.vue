@@ -55,7 +55,7 @@ export default {
     },
     getData() {
       this.$http
-      .get('/api/toutiao/index?type=top&key=df05df0ad31f5794e2dc1bd3cbf4e0f1')
+      .get('/juhenew/toutiao/index?type=top&key=df05df0ad31f5794e2dc1bd3cbf4e0f1')
       .then(
         res => {
             console.log(res);

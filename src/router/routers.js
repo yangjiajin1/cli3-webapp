@@ -1,14 +1,4 @@
-import Home from '@/views/Home.vue'
 export default [
-  {
-    path: '/',
-    name: 'home',
-    meta: {
-      title: '首页',
-      footer: true
-    },
-    component: Home
-  },
   {
     path: '/newsList',
     name: 'newsList',
@@ -89,5 +79,21 @@ export default [
       title: '海报'
     },
     component: () => import('@/views/htmlCanvas/htmlCanvas.vue')
+  },
+  {
+    path: '/message',
+    name: 'message',
+    meta: {
+      title: '聊天室'
+    },
+    component: () => import('@/views/socketMessage/message.vue')
+  },
+  {
+    path: '/globalPush',
+    name: 'globalPush',
+    meta: {
+      title: '消息推送'
+    },
+    component: () => import('@/views/socketMessage/globalPush.vue')
   }
 ]

@@ -8,19 +8,20 @@
         <router-view class="router-view" />
       </navigation>
     </transition>
-
+    <van-notice-bar class="notice_bar" v-if="messageAllState" :text="messageText" left-icon="volume-o" @click="close" mode="closeable" />
     <!-- 底部导航 newsList-->
     <transition name="slideInUp">
       <van-tabbar fixed v-model="active" v-if="$store.state.showFooter">
         <van-tabbar-item icon=" iconfont icon-shouye" @click="back('home')">首页</van-tabbar-item>
-        <van-tabbar-item icon=" iconfont icon-dingyue" @click="back('newsList')">新闻</van-tabbar-item>
-        <van-tabbar-item icon=" iconfont icon-shoucang">功能2</van-tabbar-item>
+        <van-tabbar-item icon="chat-o" @click="go('message')" :dot="messageRedDot">聊天</van-tabbar-item>
+        <van-tabbar-item icon=" iconfont icon-shoucang" @click="back('newsList')">新闻</van-tabbar-item>
         <van-tabbar-item icon=" iconfont icon-wode">我的</van-tabbar-item>
       </van-tabbar>
     </transition>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "app",
   data() {
@@ -28,8 +29,25 @@ export default {
       transitionName: "",
       active: 0,
       menlist: ["home", "newsList", "attendance2"],
-      selectedLabelDefault: "home"
+      selectedLabelDefault: "home",
+      routList: {
+        'home': 0,
+        'message': 1,
+        'newsList': 2
+      }
     };
+  },
+  watch: {
+    '$route' (data) {
+      if (this.routList[data.name] != undefined) {
+        this.active = this.routList[data.name]
+      } else {
+        this.active = 9
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(["messageRedDot","messageAllState", "messageText"])
   },
   mounted() {
     this.$navigation.on("forward", (f, t) => {
@@ -53,6 +71,9 @@ export default {
     },
     ismen(a, b) {
       return this.menlist.includes(a) && this.menlist.includes(b);
+    },
+    close () {
+        this.$store.commit('SET_AllState', false)
     }
   }
 };
@@ -73,6 +94,13 @@ export default {
     bottom: 0;
     background-color: #fff;
   }
+}
+.notice_bar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 50px;
+  z-index: 9999;
 }
 .router-view {
   position: absolute;

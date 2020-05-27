@@ -10,16 +10,31 @@ import '@/assets/css/main.scss'
 import './assets/js/rem'
 import './assets/iconfont/iconfont.css' // 字体图标
 import Navigation from 'vue-navigation'
+
+import VueSocketIO from 'vue-socket.io'
+Vue.use(new VueSocketIO({
+
+  debug: true,
+  connection: 'http://yangjiajin.cn:7001',  //
+  // connection: 'http://127.0.0.1:7001',  //
+  vuex: {
+    store,
+    mutationPrefix: "SOCKET_",
+    actionPrefix: "SOCKET_"
+  }
+}))
 // 移动端点击优化 needsclick 
-import FastClick from 'fastclick'
-if ('addEventListener' in document) {
-	document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
-    FastClick.prototype.focus = function(targetElenent) {
-      targetElenent.focus()
-    }
-	}, false);
-}
+// 目前问题 手动调用click无效
+// import FastClick from 'fastclick'
+// if ('addEventListener' in document) {
+// 	document.addEventListener('DOMContentLoaded', function() {
+//     FastClick.attach(document.body);
+//     // 处理input快速点击无反应
+//     FastClick.prototype.focus = function(targetElenent) {
+//       targetElenent.focus()
+//     }
+// 	}, false);
+// }
 // 阻止启动生产消息
 Vue.config.productionTip = false
 Vue.use(Navigation, {router, store, moduleName: 'navigation', keyName: 'VNK'})

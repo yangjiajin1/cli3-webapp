@@ -46,6 +46,7 @@ a,a:link,a:hover,a:active,a:visited{ text-decoration:none; outline:0 none; }
   padding-top: calc(env(safe-area-inset-top) + 46px);
   height: 100%;
   overflow: auto;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 /*iphone安全距离适配类*/
 .ios-marginTop {

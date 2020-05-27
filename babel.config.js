@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     '@vue/app'
   ],
-  "plugins": [
+  plugins: [
     ["import", {
       "libraryName": "vant",
       "libraryDirectory": "es",

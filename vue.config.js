@@ -2,6 +2,7 @@
 //官方vue.config.js 参考文档 https://cli.vuejs.org/zh/config/#css-loaderoptions
 // 这里只列一部分，具体配置参考文档
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -12,7 +13,7 @@ module.exports = {
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
 
   // // outputDir: 在npm run build 或 yarn build 时 ，生成文件的目录名称（要和baseUrl的生产环境路径一致）
-  // outputDir: "mycli3",
+  outputDir: "dist",
   // //用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
   // assetsDir: "assets",
   // //指定生成的 index.html 的输出路径  (打包之后，改变系统默认的index.html的文件名)
@@ -34,7 +35,7 @@ module.exports = {
   //  *  map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
   //  *  有了map就可以像未加密的代码一样，准确的输出是哪一行哪一列有错。
   //  * */
-  // productionSourceMap: false,
+  productionSourceMap: false,
 
   // // 它支持webPack-dev-server的所有选项
   devServer: {
@@ -46,12 +47,12 @@ module.exports = {
 
   //   // 配置多个代理
     proxy: {
-      "/api": {
+      "/juhenew": {
         target: "http://v.juhe.cn",
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/juhenew': ''
         }
       },
       "/upl": {
@@ -62,6 +63,11 @@ module.exports = {
           '^/upl': ''
         }
       },
+      '/socket.io': {
+        target: 'http://127.0.0.1:7001',
+        ws: true,
+        changeOrigin: true
+       },
     }
   },
 
@@ -70,9 +76,22 @@ module.exports = {
   //   'vue-echarts',
   //   'resize-detector'
   // ],
-  // chainWebpack: config => {
-    // config.entry.app = ["babel-polyfill", resolve('src/main.js')]
-    // config.resolve.alias
-    //   .set('@', resolve('src'))
-  // }
+  chainWebpack: config => {
+    config.plugins.delete('preload') // TODO: need test
+    config.plugins.delete('prefetch') // TODO: need test
+
+    config.resolve.alias
+      .set('@', resolve('src'))
+
+    /**
+     * 打包分析
+     */
+    if (process.env.NODE_ENV == 'production') {
+      config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
+        {
+          analyzerMode: 'static'
+        }
+      ])
+    }
+  }
 };
