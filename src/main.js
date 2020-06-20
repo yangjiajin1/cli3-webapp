@@ -1,4 +1,4 @@
-// import 'babel-polyfill'
+import 'babel-polyfill'
 import Vue from 'vue'
 import './vant-ui'
 import App from './App.vue'
@@ -10,7 +10,9 @@ import '@/assets/css/main.scss'
 import './assets/js/rem'
 import './assets/iconfont/iconfont.css' // 字体图标
 import Navigation from 'vue-navigation'
-
+// 缩放 
+// import myTouch from './assets/js/myTouch'
+// myTouch(Vue)
 import VueSocketIO from 'vue-socket.io'
 Vue.use(new VueSocketIO({
 

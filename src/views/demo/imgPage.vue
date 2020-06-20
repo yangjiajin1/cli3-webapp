@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import fixImgFile from '@/assets/lib/iosPhotoRepair'
+// import fixImgFile from '@/assets/lib/iosPhotoRepair'
 import imageConversion from '@/assets/lib/conversion'
 export default {
   name: "imgPage",
@@ -41,9 +41,9 @@ export default {
   methods: {
       afterRead (file) {
         
-        fixImgFile(file.file).then( base64 => {
-          let blobimg = imageConversion.dataURLToBlob(base64)
-          imageConversion.compressAccurately(blobimg, 
+        // fixImgFile(file.file).then( base64 => {
+        //   let blobimg = imageConversion.dataURLToBlob(base64)
+          imageConversion.compressAccurately(file.file, 
           {size: this.value,
             width: this.Vwidth > 0 ? Number(this.Vwidth) : null,
             height: this.Vheight > 0 ?Number(this.Vheight) : null
@@ -53,7 +53,7 @@ export default {
                 this.imgSrc = base64
               })
           })
-        })
+        // })
           
       }
   }

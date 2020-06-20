@@ -95,5 +95,29 @@ export default [
       title: '消息推送'
     },
     component: () => import('@/views/socketMessage/globalPush.vue')
+  },
+  {
+    path: '/pdfView',
+    name: 'pdfView',
+    meta: {
+      title: 'pdf预览'
+    },
+    component: () => import('@/views/pdfView/pdfView.vue')
+  },
+  {
+    path: '/suofan',
+    name: 'suofan',
+    meta: {
+      title: 'pdf预览'
+    },
+    component: () => import('@/views/pdfView/suofan.vue')
+  },
+  {
+    path: '/svgAnimation',
+    name: 'svgAnimation',
+    meta: {
+      title: 'svg动画'
+    },
+    component: () => import('@/views/svg/svgAnimation.vue')
   }
 ]

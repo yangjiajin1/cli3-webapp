@@ -44,6 +44,8 @@ export default {
         // {name: '热力图', icon: 'photo-o', path: '/heatMap'},
         {name: '生成海报', icon: 'photo-o', path: '/htmlCanvas'},
         {name: '消息推送', icon: 'chat-o', path: '/globalPush'},
+        {name: 'pdf预览', icon: 'chat-o', path: '/pdfView'},
+        {name: 'svg动画', icon: 'chat-o', path: '/svgAnimation'}
       ]
     };
   },

@@ -21,7 +21,8 @@ import {
   Icon,
   Popup,
   ImagePreview,
-  NoticeBar
+  NoticeBar,
+  Toast
 } from 'vant'
 
 Vue.use(Tabbar)
@@ -42,3 +43,4 @@ Vue.use(Icon)
 Vue.use(Popup)
 Vue.use(NoticeBar)
 Vue.use(ImagePreview)
+Vue.use(Toast)

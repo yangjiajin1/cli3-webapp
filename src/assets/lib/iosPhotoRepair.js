@@ -53,7 +53,7 @@ const imgToCanvas = function(img, orientation) {
  * @param {Number} ratio 
  */
 const fixImgFile = function(file, ratio) {
-    const ratios = ratio || 2
+    const ratios = ratio || 1
 
     return new Promise(resolve => {
         if (file.type.indexOf('image') === 0) {
